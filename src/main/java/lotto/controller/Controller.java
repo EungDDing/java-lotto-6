@@ -4,8 +4,10 @@ import lotto.domain.BonusNumber;
 import lotto.domain.Game;
 import lotto.domain.Lotto;
 import lotto.domain.Money;
+import lotto.service.Service;
 import lotto.validate.Validate;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +18,11 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Controller {
     private static final String SLICING_SYMBOL = ",";
 
+    private int numberOfGame;
+    private Game game;
+
     public void run() {
-        inputMoney();
-        getWinningNumber();
-        inputBonusNumber();
+        initPrice();
     }
     public String inputWinningNumber() {
         String winningNumber = readLine();
@@ -73,5 +76,14 @@ public class Controller {
     public void validateMoney(String money) {
         Validate.checkMoneyIsDigit(money);
         Validate.checkMoneyIsEmpty(money);
+    }
+    public void initPrice() {
+        Money buy = inputMoney();
+        numberOfGame = Service.numberOfGame(buy);
+        printBuyLottos();
+        OutputView.printLottos(Service.randomLottos(buy));
+    }
+    public void printBuyLottos() {
+        OutputView.printNumberOfGames(numberOfGame);
     }
 }
