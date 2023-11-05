@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.domain.BonusNumber;
 import lotto.domain.Game;
 import lotto.domain.Lotto;
 import lotto.domain.Money;
@@ -44,24 +45,17 @@ public class Controller {
         }
         return lotto;
     }
-    public String inputBonusNumber() {
+    public BonusNumber inputBonusNumber() {
         String bonusNumber;
+        BonusNumber bonus;
         try {
             InputView.printInputBonusNumber();
             bonusNumber = readLine();
-            validateBonusNumber(bonusNumber);
+            bonus = new BonusNumber(bonusNumber);
         } catch (IllegalArgumentException e) {
             return inputBonusNumber();
         }
-        return bonusNumber;
-    }
-    public void validateBonusNumber(String bonusNumber) {
-        Validate.checkBonusNumberIsEmpty(bonusNumber);
-        Validate.checkBounsNumberRange(bonusNumber);
-    }
-    public void saveWinningAndBonus(Lotto lotto, String bonus) {
-        int bonusNumber = Integer.parseInt(bonus);
-        Game game = new Game(lotto, bonusNumber);
+        return bonus;
     }
     public Money inputMoney() {
         String money;
