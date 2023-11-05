@@ -8,6 +8,8 @@ public class Validate {
     private static final int SIZE_OF_LOTTO = 6;
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 45;
+    private static final int MIN_PRICE = 1000;
+    private static final int REMAINDER_IS_ZERO = 0;
 
     public static void checkSize(List<Integer> numbers) {
         if (numbers.size() != SIZE_OF_LOTTO) {
@@ -27,6 +29,11 @@ public class Validate {
                 ErrorView.printNumberRangerError();
                 throw new IllegalArgumentException();
             }
+        }
+    }
+    public static void checkDivideByThousand(int buy) {
+        if (buy % MIN_PRICE != REMAINDER_IS_ZERO) {
+            throw new IllegalArgumentException();
         }
     }
 }
