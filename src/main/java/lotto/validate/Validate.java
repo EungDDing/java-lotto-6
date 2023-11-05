@@ -33,23 +33,31 @@ public class Validate {
     }
     public static void checkDivideByThousand(int buy) {
         if (buy % MIN_PRICE != REMAINDER_IS_ZERO) {
+            ErrorView.printMoneyDivideError();
             throw new IllegalArgumentException();
         }
     }
-    public static void checkIsEmpty(String bonusNumber) {
+    public static void checkBonusNumberIsEmpty(String bonusNumber) {
         if (bonusNumber.isEmpty()) {
             ErrorView.printBonusNumberIsEmpty();
             throw new IllegalArgumentException();
         }
     }
-    public static void checkIsDigit(String bonusNumber) {
+    public static void checkMoneyIsDigit(String bonusNumber) {
         if (!bonusNumber.chars().allMatch(Character::isDigit)) {
+            ErrorView.printMoneyHasChar();
             throw new IllegalArgumentException();
         }
     }
     public static void checkBounsNumberRange(String bonusNumber) {
         if (Integer.parseInt(bonusNumber) < MIN_NUMBER || Integer.parseInt(bonusNumber) > MAX_NUMBER) {
             ErrorView.printNumberRangerError();
+            throw new IllegalArgumentException();
+        }
+    }
+    public static void checkMoneyIsEmpty(String money) {
+        if (money.isEmpty()) {
+            ErrorView.printMoneyIsEmpty();
             throw new IllegalArgumentException();
         }
     }

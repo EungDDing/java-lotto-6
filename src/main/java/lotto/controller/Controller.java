@@ -1,6 +1,8 @@
 package lotto.controller;
 
+import lotto.domain.Game;
 import lotto.domain.Lotto;
+import lotto.domain.Money;
 import lotto.validate.Validate;
 import lotto.view.InputView;
 
@@ -14,6 +16,7 @@ public class Controller {
     private static final String SLICING_SYMBOL = ",";
 
     public void run() {
+        inputMoney();
         getWinningNumber();
         inputBonusNumber();
     }
@@ -53,7 +56,28 @@ public class Controller {
         return bonusNumber;
     }
     public void validateBonusNumber(String bonusNumber) {
-        Validate.checkIsEmpty(bonusNumber);
+        Validate.checkBonusNumberIsEmpty(bonusNumber);
         Validate.checkBounsNumberRange(bonusNumber);
+    }
+    public void saveWinningAndBonus(Lotto lotto, String bonus) {
+        int bonusNumber = Integer.parseInt(bonus);
+        Game game = new Game(lotto, bonusNumber);
+    }
+    public Money inputMoney() {
+        String money;
+        Money buy;
+        try {
+            InputView.printInputMoney();
+            money = readLine();
+            validateMoney(money);
+            buy = new Money(Integer.parseInt(money));
+        } catch (IllegalArgumentException e) {
+            return inputMoney();
+        }
+        return buy;
+    }
+    public void validateMoney(String money) {
+        Validate.checkMoneyIsDigit(money);
+        Validate.checkMoneyIsEmpty(money);
     }
 }
