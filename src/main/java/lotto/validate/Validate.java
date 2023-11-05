@@ -24,4 +24,9 @@ public class Validate {
             }
         }
     }
+    public static void checkIsEmpty(List<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
