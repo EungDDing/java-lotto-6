@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.validate.Validate;
+
 public class Money {
     private final int buy;
 
@@ -9,6 +11,6 @@ public class Money {
     }
 
     public void validate(int buy) {
-        
+        Validate.checkDivideByThousand(buy);
     }
 }
