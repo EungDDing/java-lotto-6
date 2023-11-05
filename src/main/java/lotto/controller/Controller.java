@@ -14,11 +14,7 @@ public class Controller {
     private static final String SLICING_SYMBOL = ",";
 
     public void run() {
-        try {
-            getWinningNumber();
-        } catch (IllegalArgumentException e) {
-            run();
-        }
+        getWinningNumber();
     }
     public String inputWinningNumber() {
         String winningNumber = readLine();
@@ -35,7 +31,11 @@ public class Controller {
         return lotto;
     }
     public void getWinningNumber() {
-        InputView.printInputWinngNumber();
-        Lotto lotto = saveWinningnumber();
+        try {
+            InputView.printInputWinngNumber();
+            Lotto lotto = saveWinningnumber();
+        } catch (IllegalArgumentException e){
+            getWinningNumber();
+        }
     }
 }
