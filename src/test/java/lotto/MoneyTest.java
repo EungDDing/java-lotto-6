@@ -4,6 +4,7 @@ import lotto.domain.Money;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 public class MoneyTest {
@@ -12,5 +13,11 @@ public class MoneyTest {
     void createMoneyByNotDivideByThousand() {
         assertThatThrownBy(() -> new Money(1100))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+    @DisplayName("구매 금액에 따른 로또 게임 수를 출력한다.")
+    @Test
+    void convertMoneyToNumberOfGame() {
+        Money buy = new Money(8000);
+        assertThat(buy.numberOfLotto()).isEqualTo(8);
     }
 }
