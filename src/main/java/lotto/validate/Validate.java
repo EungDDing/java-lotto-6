@@ -36,13 +36,18 @@ public class Validate {
             throw new IllegalArgumentException();
         }
     }
-    public static void checkIsEmpty(String bonusnumber) {
-        if (bonusnumber.isEmpty()) {
+    public static void checkIsEmpty(String bonusNumber) {
+        if (bonusNumber.isEmpty()) {
             throw new IllegalArgumentException();
         }
     }
-    public static void checkIsDigit(String bonusnumber) {
-        if (!bonusnumber.chars().allMatch(Character::isDigit)) {
+    public static void checkIsDigit(String bonusNumber) {
+        if (!bonusNumber.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException();
+        }
+    }
+    public static void checkBounsNumberRange(String bonusNumber) {
+        if (Integer.parseInt(bonusNumber) < MIN_NUMBER || Integer.parseInt(bonusNumber) > MAX_NUMBER) {
             throw new IllegalArgumentException();
         }
     }

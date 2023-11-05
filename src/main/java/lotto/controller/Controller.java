@@ -41,10 +41,11 @@ public class Controller {
     }
     public String inputBonusNumber() {
         String bonusNumber = readLine();
+        validateBonusNumber(bonusNumber);
         return bonusNumber;
     }
-    public void validate(String bonusNumber) {
+    public void validateBonusNumber(String bonusNumber) {
         Validate.checkIsEmpty(bonusNumber);
-        Validate.checkIsDigit(bonusNumber);
+        Validate.checkBounsNumberRange(bonusNumber);
     }
 }
