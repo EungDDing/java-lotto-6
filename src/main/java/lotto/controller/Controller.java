@@ -4,7 +4,6 @@ import lotto.domain.Lotto;
 import lotto.validate.Validate;
 import lotto.view.InputView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,22 +31,26 @@ public class Controller {
         Lotto lotto = new Lotto(winningNumbers);
         return lotto;
     }
-    public void getWinningNumber() {
+    public Lotto getWinningNumber() {
+        Lotto lotto;
         try {
             InputView.printInputWinngNumber();
-            Lotto lotto = saveWinningnumber();
+            lotto = saveWinningnumber();
         } catch (IllegalArgumentException e){
-            getWinningNumber();
+            return getWinningNumber();
         }
+        return lotto;
     }
-    public void inputBonusNumber() {
+    public String inputBonusNumber() {
+        String bonusNumber;
         try {
             InputView.printInputBonusNumber();
-            String bonusNumber = readLine();
+            bonusNumber = readLine();
             validateBonusNumber(bonusNumber);
         } catch (IllegalArgumentException e) {
-            inputBonusNumber();
+            return inputBonusNumber();
         }
+        return bonusNumber;
     }
     public void validateBonusNumber(String bonusNumber) {
         Validate.checkIsEmpty(bonusNumber);
