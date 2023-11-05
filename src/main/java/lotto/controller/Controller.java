@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.Lotto;
+import lotto.validate.Validate;
 import lotto.view.InputView;
 
 import java.util.ArrayList;
@@ -37,5 +38,13 @@ public class Controller {
         } catch (IllegalArgumentException e){
             getWinningNumber();
         }
+    }
+    public String inputBonusNumber() {
+        String bonusNumber = readLine();
+        return bonusNumber;
+    }
+    public void validate(String bonusNumber) {
+        Validate.checkIsEmpty(bonusNumber);
+        Validate.checkIsDigit(bonusNumber);
     }
 }

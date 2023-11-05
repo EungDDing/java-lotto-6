@@ -36,4 +36,14 @@ public class Validate {
             throw new IllegalArgumentException();
         }
     }
+    public static void checkIsEmpty(String bonusnumber) {
+        if (bonusnumber.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+    public static void checkIsDigit(String bonusnumber) {
+        if (!bonusnumber.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
