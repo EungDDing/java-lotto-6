@@ -1,13 +1,19 @@
 package lotto.domain;
 
-import java.util.List;
-
 public class Game {
     private final Lotto winningNumber;
-    private final int bonusNumber;
+    private final BonusNumber bonusNumber;
 
-    public Game(Lotto winningNumber, int bonusNumber) {
+    public Game(Lotto winningNumber, BonusNumber bonusNumber) {
         this.winningNumber = winningNumber;
         this.bonusNumber = bonusNumber;
+    }
+
+    public Lotto getWinningNumber() {
+        return winningNumber;
+    }
+
+    public BonusNumber getBonusNumber() {
+        return bonusNumber;
     }
 }
