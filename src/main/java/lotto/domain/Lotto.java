@@ -16,4 +16,8 @@ public class Lotto {
         Validate.checkDuplication(numbers);
         Validate.checkNumberRange(numbers);
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }

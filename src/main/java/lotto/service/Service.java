@@ -1,18 +1,18 @@
 package lotto.service;
 
-import lotto.domain.BonusNumber;
 import lotto.domain.Game;
-import lotto.domain.Lotto;
 import lotto.domain.Money;
+
+import java.util.List;
 
 public class Service {
     public int numberOfGame(Money buy) {
         return buy.numberOfLotto();
     }
-    public Lotto winningNumber(Game game) {
+    public List<Integer> winningNumber(Game game) {
         return game.getWinningNumber();
     }
-    public BonusNumber bonusNumber(Game game) {
+    public int bonusNumber(Game game) {
         return game.getBonusNumber();
     }
 }
