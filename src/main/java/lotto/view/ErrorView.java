@@ -10,4 +10,7 @@ public class ErrorView {
     public static void printNumberRangerError() {
         System.out.println("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야합니다.");
     }
+    public static void printBonusNumberIsEmpty() {
+        System.out.println("[ERROR] 보너스 번호를 입력해야 합니다.");
+    }
 }

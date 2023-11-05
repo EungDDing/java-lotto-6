@@ -16,6 +16,7 @@ public class Controller {
 
     public void run() {
         getWinningNumber();
+        inputBonusNumber();
     }
     public String inputWinningNumber() {
         String winningNumber = readLine();
@@ -39,10 +40,14 @@ public class Controller {
             getWinningNumber();
         }
     }
-    public String inputBonusNumber() {
-        String bonusNumber = readLine();
-        validateBonusNumber(bonusNumber);
-        return bonusNumber;
+    public void inputBonusNumber() {
+        try {
+            InputView.printInputBonusNumber();
+            String bonusNumber = readLine();
+            validateBonusNumber(bonusNumber);
+        } catch (IllegalArgumentException e) {
+            inputBonusNumber();
+        }
     }
     public void validateBonusNumber(String bonusNumber) {
         Validate.checkIsEmpty(bonusNumber);

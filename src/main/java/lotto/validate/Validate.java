@@ -38,6 +38,7 @@ public class Validate {
     }
     public static void checkIsEmpty(String bonusNumber) {
         if (bonusNumber.isEmpty()) {
+            ErrorView.printBonusNumberIsEmpty();
             throw new IllegalArgumentException();
         }
     }
@@ -48,6 +49,7 @@ public class Validate {
     }
     public static void checkBounsNumberRange(String bonusNumber) {
         if (Integer.parseInt(bonusNumber) < MIN_NUMBER || Integer.parseInt(bonusNumber) > MAX_NUMBER) {
+            ErrorView.printNumberRangerError();
             throw new IllegalArgumentException();
         }
     }
