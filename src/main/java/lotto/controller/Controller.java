@@ -17,7 +17,7 @@ public class Controller {
         try {
             getWinningNumber();
         } catch (IllegalArgumentException e) {
-            getWinningNumber();
+            run();
         }
     }
     public String inputWinningNumber() {

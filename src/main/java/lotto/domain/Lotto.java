@@ -15,6 +15,5 @@ public class Lotto {
         Validate.checkSize(numbers);
         Validate.checkDuplication(numbers);
         Validate.checkNumberRange(numbers);
-        Validate.checkIsEmpty(numbers);
     }
 }

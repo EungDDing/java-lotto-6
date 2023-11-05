@@ -32,10 +32,4 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(List.of(1, 1, 2, 3, 4, 60)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-    @DisplayName("로또 번호를 담는 List가 공백이면 예외가 발생한다.")
-    @Test
-    void createLottoIsEmpty() {
-        assertThatThrownBy(() -> new Lotto(List.of()))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 }
